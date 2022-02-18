@@ -1,3 +1,44 @@
+// COLORS:
+$color-background: hsl(185, 41%, 84%);
+$color-background-main-content: hsl(0, 0%, 100%);
+$color-background-content-right: hsl(183, 100%, 15%);
+$color-background-input: hsl(189, 41%, 97%);
+$color-background-btn-active: hsl(172, 67%, 45%);
+$color-text-element-box-header: hsl(186, 14%, 43%);
+$color-text-btn-custom: hsl(184, 14%, 56%);
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
 body {
   font-family: "Space Mono", monospace;
+  background-color: $color-background;
+  font-size: 1.6rem;
+  height: 100vh;
+}
+
+.js-btn-active {
+  background-color: $color-background-btn-active;
+  color: $color-background-content-right;
 }
