@@ -37,62 +37,123 @@
     <title>Frontend Mentor | Tip calculator app</title>
   </head>
   <body>
-    <section>
-      <header>
-        <img src="./images/logo.svg" alt="Header logo" />
+    <section class="tip-cal">
+      <header class="tip-cal__header">
+        <img
+          src="./images/logo.svg"
+          alt="Header logo"
+          class="tip-cal__header-img"
+        />
       </header>
 
-      <main>
-        <div>
-          <div>
-            <h3>Bill</h3>
-            <div>
-              <input type="number" />
-              <img src="./images/icon-dollar.svg" alt="" />
+      <main class="tip-cal__main-content">
+        <div class="tip-cal__content-left">
+          <div class="element-box">
+            <h3 class="element-box__header">Bill</h3>
+            <div class="element-box__input-box">
+              <input
+                type="number"
+                class="element-box__input"
+                id="element-box__input--bill"
+                placeholder="0"
+              />
+              <img
+                src="./images/icon-dollar.svg"
+                alt=""
+                class="element-box__icon"
+              />
             </div>
           </div>
 
-          <div>
-            <h3>Select Tip %</h3>
-            <div>
-              <div>
-                <button>5%</button>
-                <button>10%</button>
-                <button>15%</button>
-                <button>25%</button>
-                <button>50%</button>
-                <input type="number" placeholder="Custom" />
+          <div class="tip-cal__select-tip-box">
+            <h3 class="tip-cal__select-tip-header">Select Tip %</h3>
+            <div class="tip-cal__select-tip-btn-box">
+              <button
+                class="tip-cal__select-tip-btn tip-cal__select-tip-btn--5"
+                onclick="calculateTipAndTotal('0.05')"
+              >
+                5%
+              </button>
+              <button
+                class="tip-cal__select-tip-btn tip-cal__select-tip-btn--10"
+                onclick="calculateTipAndTotal('0.1')"
+              >
+                10%
+              </button>
+              <button
+                class="tip-cal__select-tip-btn tip-cal__select-tip-btn--15"
+                onclick="calculateTipAndTotal('0.15')"
+              >
+                15%
+              </button>
+              <button
+                class="tip-cal__select-tip-btn tip-cal__select-tip-btn--25"
+                onclick="calculateTipAndTotal('0.25')"
+              >
+                25%
+              </button>
+              <button
+                class="tip-cal__select-tip-btn tip-cal__select-tip-btn--50"
+                onclick="calculateTipAndTotal('0.5')"
+              >
+                50%
+              </button>
+              <div
+                class="tip-cal__select-tip-btn--custom"
+                contenteditable="true"
+                onfocusout="calculateTipAndTotal()"
+              >
+                Custom
               </div>
             </div>
           </div>
 
-          <div>
-            <h3>Number of People</h3>
-            <div>
-              <input type="number" />
-              <img src="./images/icon-person.svg" alt="" />
+          <div class="element-box">
+            <h3 class="element-box__header">
+              Number of People
+              <span class="element-box__error"></span>
+            </h3>
+            <div class="element-box__input-box">
+              <input
+                type="number"
+                class="element-box__input"
+                id="element-box__input--people"
+                placeholder="0"
+                onfocusout="reCalculateTipAndTotal()"
+              />
+              <img
+                src="./images/icon-person.svg"
+                alt=""
+                class="element-box__icon"
+              />
             </div>
           </div>
         </div>
 
-        <div>
-          <div>
-            <p>
-              <span>Tip Amount</span>
-              <span>/ person</span>
-            </p>
-            <p>$0.00</p>
+        <div class="tip-cal__content-right">
+          <div class="money-boxes">
+            <div class="money-box money-box--tip">
+              <p class="money-box__text-box">
+                <span class="money-box__title">Tip Amount</span>
+                <span class="money-box__text">/ person</span>
+              </p>
+              <p class="money-box__money-amount money-box__money-amount--tip">
+                $0.00
+              </p>
+            </div>
+
+            <div class="money-box">
+              <p class="money-box__text-box">
+                <span class="money-box__title">Total</span>
+                <span class="money-box__text">/ person</span>
+              </p>
+              <p class="money-box__money-amount money-box__money-amount--total">
+                $0.00
+              </p>
+            </div>
           </div>
 
-          <div>
-            <p>
-              <span>Total</span>
-              <span>/ person</span>
-            </p>
-            <p>$0.00</p>
-          </div>
-
-          <button>Reset</button>
+          <button class="tip-cal__btn-reset" onclick="reset()">Reset</button>
         </div>
       </main>
     </section>
